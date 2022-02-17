@@ -1,0 +1,33 @@
+import java.io.*;
+
+public class Main {
+	public static void main(String[] args)
+		throws IOException
+	{
+	    int lines=0,chars=0,words=0;
+	    int code=0;
+	    File f1=new File("karthik.txt");
+		FileInputStream fis = new FileInputStream(f1);
+		InputStreamReader isr = new InputStreamReader(fis);
+		BufferedReader bufferedReader = new BufferedReader(isr);
+		while(fis.available()!=0)
+			{
+				code = fis.read();
+				if(code!=10)  //ASCII value OF NULL is 10
+				chars++;
+				if(code==32)  //ASCII value OF SPACE is 32
+				words++;
+				if(code=='\n') 
+				{
+					lines++;
+					words++;
+				}
+			}
+			System.out.println("No.of characters = "+chars);
+			System.out.println("No.of words = "+(words+1));
+			System.out.println("No.of lines = "+(lines+1));
+			fis.close();
+		
+	}}
+
+

@@ -1,0 +1,31 @@
+import java.io.*;
+class readandwrite
+{
+    public static void main(String args[])
+    {
+        try
+        {
+            File f1=new File("karthik.txt");
+            File f2=new File("karthik1.txt");
+            FileReader fr=new FileReader(f1);
+            FileWriter fw=new FileWriter(f2);
+            BufferedReader br=new BufferedReader(fr);
+            BufferedWriter bw=new BufferedWriter(fw);
+            String s=br.readLine();
+            while(s!=null)
+            {
+                bw.write(s);
+                bw.newLine();
+                s=br.readLine();
+            }
+            bw.close();
+            fr.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }}
+    
+ 

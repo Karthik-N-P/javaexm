@@ -1,0 +1,21 @@
+import java.io.*;
+class bytebybye {
+    public static void main(String[]args){
+        try{
+        File f=new File("Karthik.txt");
+        FileInputStream fis=new FileInputStream(f); //FileInputStream is used to read the file
+        byte b[]=new byte[(int)f.length()];  //to store the file in byte array
+        fis.read(b); //to read the file byte by byte
+        for(int i=0;i<b.length;i++)
+        System.out.print((char)b[i]);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+}
+
+     
+ 
+     
+     
