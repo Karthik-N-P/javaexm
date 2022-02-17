@@ -1,0 +1,48 @@
+class counter{
+    int count;
+    public counter(){
+        count=0;
+    }
+    public synchronized void increment(){
+        int temp= count +1;
+        try{
+            Thread.sleep(200);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        count=temp;
+        System.out.println(Thread.currentThread().getName()+"count ="+count);
+    }
+  
+
+
+
+}
+class A implements Runnable{
+    counter c;
+    public A(counter c){
+        this.c=c;
+    }
+    public void run(){
+        for(int i=0;i<5;i++){
+            c.increment();
+        }
+    }
+}
+
+
+
+
+public class synchronization {
+    public static void main(String[] args) {
+        counter c=new counter();
+        A a=new A(c);
+        Thread t1=new Thread(a);
+        Thread t2=new Thread(a);
+        t1.start();
+        t2.start();
+    }
+
+    
+}
